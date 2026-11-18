@@ -1,0 +1,7 @@
+output/
+__pycache__/
+*.pyc
+news-image-20261117-kit/
+makefun-keypair.json
+transcripts.tar.gz
+*.tar.gz
