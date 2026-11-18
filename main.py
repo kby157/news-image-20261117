@@ -1,6 +1,6 @@
-"""news-image-20261117: copy the front-page PNG to the grader output path.
+"""news-image-20261117 entrypoint: copy the front page to the grader output.
 
-Deterministic: identical bytes every run. No network. Standard library only.
+Deterministic: two runs write identical bytes. No network. Stdlib only.
 """
 from __future__ import annotations
 
@@ -9,7 +9,8 @@ import shutil
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "entry.png")
-OUT = os.path.join(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"), "entry.png")
+OUT_DIR = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+OUT = os.path.join(OUT_DIR, "entry.png")
 
-os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
+os.makedirs(OUT_DIR, exist_ok=True)
 shutil.copyfile(SRC, OUT)
